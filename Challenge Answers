@@ -22,5 +22,12 @@ FROM
 WHERE
    player_id = 3;
 --------------------
+--3. What is the total number of players in each team?
+
+SELECT t.team_name, count(p.player_id) as Total_Players
+from Teams t, Players p
+where t.team_id=p.team_id
+group by t.team_name;
+--------------------------------
 
 
