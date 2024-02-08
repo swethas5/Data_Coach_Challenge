@@ -1,1 +1,26 @@
+-- 1. What are the names of the players whose salary is greater than 100,000?
+SELECT
+   player_name,
+   salary 
+FROM
+   players 
+WHERE
+   salary > 100000 
+ORDER BY
+   salary DESC;
+--------------------
+
+-- 2. What is the team name of the player with player_id = 3?
+SELECT
+   player_id,
+   team_name 
+FROM
+   players p 
+   JOIN
+      teams t 
+      ON t.team_id = p.team_id 
+WHERE
+   player_id = 3;
+--------------------
+
 
