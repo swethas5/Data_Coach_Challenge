@@ -29,5 +29,37 @@ from Teams t, Players p
 where t.team_id=p.team_id
 group by t.team_name;
 --------------------------------
+-- 4. What is the team name and captain name of the team with team_id = 2?
+
+
+select t.team_name, p.player_name as captain_name
+from Teams t join Players p
+on t.team_id=p.team_id
+where p.player_id=2;
+
+--------------------------------
+#5. What are the player names and their roles in the team with team_id = 1?
+
+select  p.player_name,p.role 
+from  Players p
+where team_id=1;
+-----------------------------------
+#6. What are the team names and the number of matches they have won?
+
+
+select t.team_name, count(m.winner_id) as No_of_Matches_won
+from Teams t join Matches m
+on t.team_id=m.winner_id
+group by t.team_name
+order by count(m.winner_id) DESC ;
+-----------------------------------
+
+#7. What is the average salary of players in the teams with country 'USA'?
+
+select ROUND(AVG(salary)),TEAM_ID from Players
+where team_id in (select team_id from Teams where country='USA') GROUP BY TEAM_ID;
+----------------------------------------
+
+
 
 
