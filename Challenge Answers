@@ -69,4 +69,18 @@ group by t.team_name
 order by No_of_Matches_won desc
 LIMIT 1;
 -------------------------------
+#9. What are the team names and the number of players in each team whose salary is greater than 100,000?
+
+
+Select t.team_name, count(p.player_name) as Sal_gt_100000
+from Teams t join Players p
+on t.team_id=p.team_id
+where p.salary>100000
+group by t.team_name;
+--------------------------------
+#10. What is the date and the score of the match with match_id = 3?
+
+select match_date, score_team1,score_team2
+from Matches 
+where match_id=3;
 
