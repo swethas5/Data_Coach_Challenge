@@ -59,7 +59,14 @@ order by count(m.winner_id) DESC ;
 select ROUND(AVG(salary)),TEAM_ID from Players
 where team_id in (select team_id from Teams where country='USA') GROUP BY TEAM_ID;
 ----------------------------------------
+#8. Which team won the most matches?
 
-
-
+select t.team_name,
+count(m.winner_id) as No_of_Matches_won
+from Teams t join Matches m
+on t.team_id=m.winner_id
+group by t.team_name
+order by No_of_Matches_won desc
+LIMIT 1;
+-------------------------------
 
